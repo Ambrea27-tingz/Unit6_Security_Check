@@ -28,26 +28,50 @@ user_files = {
     },
 }
 
-# Step 2: Define security levels
+#2: Defines security levels
+security_levels = {
+    "Sally": 1,
+    "Paul": 2,
+    "Sabrina": 2,
+    "guest": 3
+}
+
+"""Allows a maximum of 3 login attempts."""
+attempts = 3
+while attempts > 0:
+
+#3: Ask the user for their username
+    username = input("Enter your username: ")
+    
+    # Step 4: Check if the username exists
+    if username not in user_files:
+        print("Invalid username. Please try again.")
+        attempts -= 1
+        continue # Restart the loop
+
+
+
+
+#5: Ask for the password (since username exists)
 
 
 
 
 
 
-# Step 3: Ask the user for their username
+
+#6: Validate the password
+
+
+
+
+
+#7: Assign and display security level
 
 
 
 
 
 
-# Step 4: Check if the username exists
-
-
-
-
-
-# Step 5: Ask for the password (since username exists)
 
 
