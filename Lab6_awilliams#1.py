@@ -9,26 +9,17 @@
    Guests can log in with limited access using “guest”/“guest”
    """
 
-# Step 1: Create a dictionary of usernames and passwords
+"""#S1: Create a dictionary of usernames and passwords"""
+
 user_files = {
-    "Sally": {
-        "password": "PrettyInPink@614"
-    },
+    "Sally": "PrettyInPink@614",
+    "Paul": "TomandJerry@123",
+    "Sabrina": "SabrinaTheTeenageWitch@456",
+    "guest": "guest",
+    }
 
-    "Paul": {
-        "password": "TomandJerry@123"
-    },
+"""#S2: Shows users their security levels"""
 
-    "Sabrina": {
-        "password": "SabrinaTheTeenageWitch@456"
-    },
-    
-    "guest": {
-        "password": "guest"
-    },
-}
-
-#2: Defines security levels
 security_levels = {
     "Sally": 1,
     "Paul": 2,
@@ -40,34 +31,35 @@ security_levels = {
 attempts = 3
 while attempts > 0:
 
-#3: Ask the user for their username
+    """#S3: Ask the user for their username"""
+
     username = input("Enter your username: ")
     
-    # Step 4: Check if the username exists
+    """#S4: Check if the username exists"""
     if username not in user_files:
         print("Invalid username. Please try again.")
         attempts -= 1
         continue # Restart the loop
 
+    """#S5: Ask for the password (atp the username exists)"""
+    password = input("Enter the details of your password: ")
 
+    """#S6: Validate the password"""
 
+    if password == user_files[username]:
+        
+      """#S7: Assign and display security level"""
+      level = security_levels[username]
+      print(f"Welcome, {username}! Your security level is {level}.")
+      break  # Exit loop with a successful login
+    else:
+        print("Incorrect password. Please try again.")
+        attempts -= 1
 
-#5: Ask for the password (since username exists)
+"""#S8: Assign and display security level"""
 
-
-
-
-
-
-
-#6: Validate the password
-
-
-
-
-
-#7: Assign and display security level
-
+if attempts == 0:  # If attempts run out, deny access
+    print("Too many failed attempts. Access denied.")
 
 
 
